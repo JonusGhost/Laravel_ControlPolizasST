@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Http\Request;
@@ -12,3 +13,11 @@ Route::get('/user', function (Request $request) {
 Route::post('login', [LoginController::class,'login']);
 
 Route::post('register', [RegisterController::class,'register']);
+
+Route::get('clientes', [ClientesController::class,'index']);
+
+Route::get('cliente/{id}', [ClientesController::class,'cliente']);
+
+Route::post('cliente/guardar', [ClientesController::class,'store']);
+
+Route::delete('cliente/eliminar/{id}', [ClientesController::class,'destroy']);
