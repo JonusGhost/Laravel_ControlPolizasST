@@ -14,6 +14,12 @@ class ClientesController extends Controller
         return $clientes;
     }
 
+    public function name_c()
+    {
+        $clientes = Clientes::where('rol', 'C')->get(['id', 'name']);
+        return response()->json($clientes);
+    }
+
     public function client($id)
     {
         $cliente = Clientes::find($id);
